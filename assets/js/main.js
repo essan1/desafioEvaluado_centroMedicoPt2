@@ -1,5 +1,3 @@
-document.write("<h1>Estadisticas centro medico ÑUÑOA</h1>");
-
 let radiologia = [
   {
     hora: "11:00",
@@ -230,52 +228,49 @@ document.getElementById("tablaDental").innerHTML = tabla3;
 conveniente, la lista de consultas médicas de Dental. Sin embargo, debe hacerlo
 separando por un guión cada dato desplegado y cada fila de información debe estar
 separada por un párrafo */
-document.write(`<h3>Lista de consultas médicas de Dental: </h3>`);
 dental.forEach(function (d) {
-  document.write(
-    `${d.hora} - ${d.especialista} - ${d.paciente} - ${d.rut} - ${d.prevision}<br>`
-  );
+  document.getElementById(
+    "listaConsultaDental"
+  ).innerHTML += `${d.hora} - ${d.especialista} - ${d.paciente} - ${d.rut} - ${d.prevision}<br>`;
 });
 
 /* Imprimir un listado total de todos los pacientes que se atendieron en el centro médico.
 Para esto, deberá unir todos los nombres de pacientes e imprimir uno por cada párrafo */
 
-document.write(`<br/><h3>Lista final de todos los pacientes atentidos: </h3>`);
 
 let todosLosPacientes = radiologia.concat(traumatologia, dental);
 
 todosLosPacientes.forEach(function (paciente) {
-  document.write(`${paciente.paciente}<br>`);
+  document.getElementById(
+    "listaFinalPacientes"
+  ).innerHTML += `${paciente.paciente}<br>`;
 });
 
 /* Filtrar aquellos pacientes que indican ser de ISAPRE en la lista de consultas médicas
 de Dental */
 
-document.write(
-  `<br/><h3>Lista de pacientes ISAPRE en CONSULTAS DENTALES: </h3>`
-);
 
 let pacientesIsapre = dental.filter(function (cita) {
   return cita.prevision === "ISAPRE";
 });
 
 pacientesIsapre.forEach(function (paciente) {
-  document.write(`${paciente.paciente} - ${paciente.prevision}<br>`);
+  document.getElementById(
+    "listaIsapreDental"
+  ).innerHTML += `${paciente.paciente} - ${paciente.prevision}<br>`;
 });
 
 /* Filtrar aquellos pacientes que indican ser de FONASA en la lista de consultas médicas
 de Traumatología */
-
-document.write(
-  `<br/><h3>Lista de pacientes FONASA en CONSULTAS de TRAUMATOLOGIA: </h3>`
-);
 
 let pacientesFonasa = traumatologia.filter(function (cita) {
   return cita.prevision === "FONASA";
 });
 
 pacientesFonasa.forEach(function (paciente) {
-  document.write(`${paciente.paciente} - ${paciente.prevision}<br>`);
+  document.getElementById(
+    "listaFonasaTrauma"
+  ).innerHTML += `${paciente.paciente} - ${paciente.prevision}<br>`;
 });
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
