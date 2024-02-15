@@ -228,15 +228,14 @@ document.getElementById("tablaDental").innerHTML = tabla3;
 conveniente, la lista de consultas médicas de Dental. Sin embargo, debe hacerlo
 separando por un guión cada dato desplegado y cada fila de información debe estar
 separada por un párrafo */
-dental.forEach(function (d) {
+dental.forEach((d) => {
   document.getElementById(
     "listaConsultaDental"
-  ).innerHTML += `${d.hora} - ${d.especialista} - ${d.paciente} - ${d.rut} - ${d.prevision}<br>`;
+  ).innerHTML += `<b>Hora:</b> ${d.hora} | <b>Especialista:</b> ${d.especialista} | <b>Paciente:</b> ${d.paciente} | <b>R.U.T:</b> ${d.rut} | <b>Provision:</b> ${d.prevision}<br>`;
 });
 
 /* Imprimir un listado total de todos los pacientes que se atendieron en el centro médico.
 Para esto, deberá unir todos los nombres de pacientes e imprimir uno por cada párrafo */
-
 
 let todosLosPacientes = radiologia.concat(traumatologia, dental);
 
@@ -248,7 +247,6 @@ todosLosPacientes.forEach(function (paciente) {
 
 /* Filtrar aquellos pacientes que indican ser de ISAPRE en la lista de consultas médicas
 de Dental */
-
 
 let pacientesIsapre = dental.filter(function (cita) {
   return cita.prevision === "ISAPRE";
